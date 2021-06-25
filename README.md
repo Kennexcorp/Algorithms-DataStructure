@@ -8,3 +8,8 @@ My goal is to understand the data structure and algorithms concepts. All codes w
 Chapter 1
 
 - Binary search
+
+***
+Chapter 2
+
+- Selection Sort
