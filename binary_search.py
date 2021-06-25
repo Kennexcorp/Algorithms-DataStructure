@@ -1,37 +1,38 @@
-                                # Binary search works when the list is in sorted order
-                                # Logarithmic time = O(log n)
+class BinarySearch:
 
-def binary_search(arr, item):
+    def __init__(self, arr):
+        self.arr = arr
 
-    
-    low = 0
-    high = len(arr) - 1  
-    step = 0       # Low and High keeps track of with part of the list to search in
+    def binary_search(self, item):
 
-    while low <= high:
+        low = 0
+        high = len(self.arr) - 1  
+        step = 0       # Low and High keeps track of with part of the list to search in
+
+        while low <= high:
+            
+            mid = int((low + high) / 2) # Convert to int because division returns a float
+
+            guess = self.arr[mid]
+
+            if guess == item:
+                return 'Position: ' + str(mid) + ' ' +  'Number of steps: ' + str(step)
+
+            
+            if guess > item:        # Guess is too high
+                high = mid - 1
+                step += 1
+            else:                   # Guess is too low
+                low = mid + 1
+                step += 1
         
-        mid = int((low + high) / 2) # Convert to int because division returns a float
-
-        guess = arr[mid]
-
-        if guess == item:
-            return 'Position: ' + str(mid) + ' ' +  'Number of steps: ' + str(step)
-
-        
-        if guess > item:        # Guess is too high
-            high = mid - 1
-            step += 1
-        else:                   # Guess is too low
-            low = mid + 1
-            step += 1
-    
-    return None                 # Item does not exist
+        return None                 # Item does not exist
 
 
                                 # Run Tests
 
 sorted_list = [ x for x in range(128)]   # Create a sorted list of 100 items
+binarySearch = BinarySearch(sorted_list)
 
-print(binary_search(sorted_list, 127))
+print(binarySearch.binary_search(127))
 
-print(binary_search(sorted_list, 2))
