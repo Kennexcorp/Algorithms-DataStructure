@@ -34,5 +34,5 @@ class BinarySearch:
 sorted_list = [ x for x in range(128)]   # Create a sorted list of 100 items
 binarySearch = BinarySearch(sorted_list)
 
-print(binarySearch.binary_search(127))
+print(binarySearch.binary_search(3))
 
